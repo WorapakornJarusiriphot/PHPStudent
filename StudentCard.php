@@ -6,6 +6,8 @@ class StudentClass {
   public $StudentID; // เลขรหัสนักเรียน
   public $StudentBirthDate; // วันเกิดของนักเรียน
   public $Picture; // ภาพถ่ายของนักเรียน
+  public $Faculty; // ชื่อคณะของนักเรียน
+  public $Department; // ชื่อสาขาของนักเรียน
   
   public function __construct() {
     // กำหนดค่าเริ่มต้นให้ properties
@@ -14,6 +16,8 @@ class StudentClass {
     $this->StudentID = "644259018";
     $this->StudentBirthDate = "2003-03-17";
     $this->Picture = "Worapakorn.jpg";
+    $this->Faculty = "Faculty of Science and Technology";
+    $this->Department = "Software Engineering";
   }
   
   public function CalDateofBirthAge() {
@@ -38,14 +42,18 @@ class StudentClass {
   
   public function ShowCard() {
     // แสดงข้อมูลบัตรประจำตัวนักเรียน
-echo "<div style='border: 1px solid black; padding: 10px;'>";
-echo "<img src='{$this->Picture}' width='100' height='100'><br>";
-echo "Name: {$this->Name} {$this->Surname}<br>"; // แสดงชื่อและนามสกุลของนักเรียน
-echo "Student ID: {$this->StudentID}<br>"; // แสดงรหัสนักเรียน
-echo "Date of Birth: {$this->StudentBirthDate}<br>"; // แสดงวันเกิดของนักเรียน
-echo "Age: {$this->CalDateofBirthAge()}<br>"; // แสดงอายุของนักเรียน
-echo "Class Year: {$this->CalClassYear()}<br>"; // แสดงชั้นปีของนักเรียน
-echo "</div>"; // ปิด div tag
+    echo "<div style='border: 1px solid black; padding: 10px;'>";
+    echo "<img src='{$this->Picture}' width='100' height='100'><br>";
+    echo "Name: {$this->Name} {$this->Surname}<br>"; // แสดงชื่อและนามสกุลของนักเรียน
+    echo "Student ID: {$this->StudentID}<br>"; // แสดงรหัสนักเรียน
+    echo "Date of Birth: {$this->StudentBirthDate}<br>"; // แสดงวันเกิดของนักเรียน
+    echo "Age: {$this->CalDateofBirthAge()}<br>"; // แสดงอายุของนักเรียน
+    echo "Class Year: {$this->CalClassYear()}<br>"; // แสดงชั้นปีของนักเรียน
+    echo "Faculty: {$this->Faculty}<br>"; // แสดงชื่อคณะของนักเรียน
+    echo "Department: {$this->Department}<br>"; // แสดงชื่อสาขาของนักเรียน
+    echo "</div>"; // ปิด div tag
+  }
 }
-}
-?>
+$student = new StudentClass(); // สร้าง object ของ class StudentClass
+$student->ShowCard(); // เรียกใช้ method ShowCard() เพื่อแสดงข้อมูลบัตรประจำตัวของนักเรียน
+?>    
